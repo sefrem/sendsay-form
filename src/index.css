@@ -1,13 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.form {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.form__content-wrapper {
+  width: 740px;
+  margin: auto;
+}
+
+.form__header {
+  font-size: 30px;
+  line-height: 40px;
+  margin: 30px 0 20px;
+}
+
+.form__field-group {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.form__label {
+font-size: 16px;
+line-height: 20px;
+margin-bottom: 5px;
+color: rgba(0, 0, 0, 0.6);
+}
+
+.form__input {
+  padding: 5px;
+  border: 1px solid #DDDDDD;
+border-radius: 5px;
+}
+
+.form__subject {
+  margin-bottom: 20px;
+}
+
+.form__message-text .form__input {
+  height: 140px;
 }
