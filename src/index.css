@@ -1,51 +1,90 @@
+* {
+	box-sizing: border-box;
+}
 .form {
-  display: flex;
-  max-width: 800px;
-  margin: auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+	display: flex;
+	max-width: 800px;
+	margin: auto;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
 }
 
 .form__content-wrapper {
-  width: 740px;
-  margin: auto;
+	width: 740px;
+	margin: 30px auto;
 }
 
 .form__header {
-  font-size: 30px;
-  line-height: 40px;
-  margin: 30px 0 20px;
+	font-size: 30px;
+	line-height: 40px;
+	margin-bottom: 20px;
 }
 
 .form__field-group {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 20px;
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 5px;
 }
 
 .form__field {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 .form__label {
-font-size: 16px;
-line-height: 20px;
-margin-bottom: 5px;
-color: rgba(0, 0, 0, 0.6);
+	display: inline-block;
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 5px;
+	color: rgba(0, 0, 0, 0.6);
 }
 
 .form__input {
-  padding: 5px;
-  border: 1px solid #DDDDDD;
-border-radius: 5px;
+	padding: 5px;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+}
+
+.form__input_error {
+	border-color: red;
+}
+
+/* .form__error-message {
+	font-size: 12px;
+	color: red;
+} */
+
+.form__error-message_active {
+	font-size: 12px;
+	color: red;
+}
+
+.form__error-message_hidden {
+	height: 15px;
+	visibility: hidden;
 }
 
 .form__subject {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
-.form__message-text .form__input {
-  height: 140px;
+.form__message-text {
+	width: 740px;
+	height: 140px;
+	resize: none;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+}
+
+.form__submit {
+	width: 140px;
+  height: 40px;
+  background: linear-gradient(180deg, #45A6FF 0%, #0055FB 100%);
+  border-width: 1px;
+	border-radius: 5px;
+	border-color: #ffffff;
+	font-size: 18px;
+	line-height: 30px;
+	color: #ffffff;
 }

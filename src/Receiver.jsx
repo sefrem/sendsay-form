@@ -1,30 +1,59 @@
-import React from 'react';
-import Field from "./Field"
+import React from "react";
+import Field from "./Field";
+import { connect } from "react-redux";
+import {
+	updateReceiverName,
+	updateReceiverEmail,
+} from "./redux/receiver/receiver.actions";
 
-const Receiver = props => {
-    return (
-        <div className="form__field-group">
-        <Field 
-          labelText="Кому"
-          id="recipientName"
-          type="text"
-          name="recipientName"
-          // value={valueFirstName}
-          // onChange={onChange}
-          placeholder="Имя"
-          // error={errorFirstName}
-        />
-        <Field 
-          id="recipientEmail"
-          type="text"
-          name="recipientEmail"
-          // value={valueFirstName}
-          // onChange={onChange}
-          placeholder="Email"
-          // error={errorFirstName}
-        />
-      </div>
-    )
+class Receiver extends React.Component {
+	render() {
+		const {
+			updateReceiverEmail,
+			updateReceiverName,
+			name,
+			email,
+			errorName,
+			errorEmail,
+		} = this.props;
+		return (
+			<div className="form__field-group">
+				<Field
+					labelText="Кому"
+					id="receiverName"
+					type="text"
+					name="name"
+					value={name}
+					onChange={updateReceiverName}
+					placeholder="Имя"
+					error={errorName}
+				/>
+				<Field
+					id="receiverEmail"
+					type="text"
+					name="email"
+					value={email}
+					onChange={updateReceiverEmail}
+					placeholder="Email"
+					error={errorEmail}
+				/>
+			</div>
+		);
+	}
 }
 
-export default Receiver
+const mapDispatchToProps = {
+	updateReceiverName,
+	updateReceiverEmail,
+};
+
+const mapStateToProps = state => {
+	return {
+		name: state.receiver.name,
+		email: state.receiver.email,
+		errorName: state.errors.receiverName,
+		errorEmail: state.errors.receiverEmail,
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Receiver);
