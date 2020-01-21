@@ -49,8 +49,8 @@ const mapStateToProps = state => {
 	return {
 		name: state.receiver.name,
 		email: state.receiver.email,
-		errorName: state.errors.receiverName,
-		errorEmail: state.errors.receiverEmail,
+		errorName: state.errors.input.receiverName,
+		errorEmail: state.errors.input.receiverEmail,
 	};
 };
 
