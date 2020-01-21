@@ -7,7 +7,7 @@ const initialState = {
 
 const errors = (state = initialState, action) => {
 	switch (action.type) {
-		case "VALIDATION":
+		case "DISPLAY_ERRORS":
             state = initialState
 			return {
 				...state,

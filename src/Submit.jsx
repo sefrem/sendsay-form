@@ -1,17 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { onValidation } from "./redux/errors/errors.actions";
+import { displayErrorsOnFields } from "./redux/errors/errors.actions";
 
-class Submit extends React.Component {
-	validation = () => {
+const Submit = props => {
+	const onSubmit = () => {
 		const errors = {};
 		const {
 			senderName,
 			senderEmail,
 			receiverName,
 			receiverEmail,
-			onValidation,
-		} = this.props;
+			displayErrorsOnFields,
+		} = props;
 
 		if (senderName === "") {
 			errors.senderName = "Введите имя отправителя";
@@ -29,24 +29,26 @@ class Submit extends React.Component {
 				? (errors.receiverEmail = "Введите email")
 				: (errors.receiverEmail = "Некорректный email");
 		}
-		onValidation(errors);
+		if (Object.keys(errors).length) {
+			displayErrorsOnFields(errors);
+		} else {
+			displayErrorsOnFields()
+		}
 		return errors;
 	};
 
-	render() {
-		return (
-			<input
-				type="submit"
-				value="Отправить"
-				className="form__submit"
-				onClick={this.validation}
-			></input>
-		);
-	}
-}
+	return (
+		<input
+			type="submit"
+			value="Отправить"
+			className="form__submit"
+			onClick={onSubmit}
+		></input>
+	);
+};
 
 const mapDispatchToProps = {
-	onValidation,
+	displayErrorsOnFields,
 };
 
 const mapStateToProps = state => {

@@ -1,12 +1,13 @@
 import React from "react";
 import Field from "./Field";
 import { connect } from "react-redux";
-import { updateMessageSubject, updateMessageText } from "./redux/message/message.actions"
+import {
+	updateMessageSubject,
+	updateMessageText,
+} from "./redux/message/message.actions";
 
-class Message extends React.Component {
-	render() {
-		const { updateMessageSubject,
-			updateMessageText, subject, text } = this.props;
+const Message = props => {
+	const { updateMessageSubject, updateMessageText, subject, text } = props;
 	return (
 		<div className="form__message">
 			<div className="form__subject">
@@ -17,10 +18,8 @@ class Message extends React.Component {
 					name="subject"
 					value={subject}
 					onChange={updateMessageSubject}
-					// error={errorFirstName}
 				/>
 			</div>
-			{/* <div className="form__message-text">  */}
 			<label className="form__label" htmlFor={"message"}>
 				{"Сообщение"}
 			</label>
@@ -32,30 +31,19 @@ class Message extends React.Component {
 				value={text}
 				onChange={updateMessageText}
 			></textarea>
-			{/* <Field 
-            labelText="Сообщение"
-            id="message"
-            type="text"
-            name="message"
-            // value={valueFirstName}
-            // onChange={onChange}
-            // error={errorFirstName}
-          /> */}
 		</div>
-		// </div>
 	);
-		}
 };
 
 const mapDispatchToProps = {
 	updateMessageSubject,
-	updateMessageText
+	updateMessageText,
 };
 
 const mapStateToProps = state => {
 	return {
 		subject: state.message.subject,
-		text: state.message.text
+		text: state.message.text,
 	};
 };
 

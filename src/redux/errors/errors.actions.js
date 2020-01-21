@@ -1,6 +1,6 @@
-export const onValidation = payload => {
+export const displayErrorsOnFields = payload => {
     return {
-        type: "VALIDATION",
+        type: "DISPLAY_ERRORS",
         payload
     }
 };

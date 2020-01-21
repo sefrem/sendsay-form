@@ -50,11 +50,6 @@
 	border-color: red;
 }
 
-/* .form__error-message {
-	font-size: 12px;
-	color: red;
-} */
-
 .form__error-message_active {
 	font-size: 12px;
 	color: red;
@@ -87,4 +82,9 @@
 	font-size: 18px;
 	line-height: 30px;
 	color: #ffffff;
+}
+
+.form__drag-drop {
+	display: "inline-block"; 
+	position: "relative";
 }
