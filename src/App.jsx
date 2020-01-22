@@ -1,9 +1,10 @@
 import React from "react";
-import Sender from "./Sender";
-import Receiver from "./Receiver";
-import Message from "./Message";
-import Submit from "./Submit";
-import Drop from "./Drop";
+import Sender from "./components/Sender";
+import Receiver from "./components/Receiver";
+import Message from "./components/Message";
+import Submit from "./components/Submit";
+import Drop from "./components/Drop";
+import FileInput from "./components/FileInput"
 
 function App() {
 	return (
@@ -14,9 +15,8 @@ function App() {
 					<Sender />
 					<Receiver />
 					<Message />
-					<div className="form__attachement">
-						<p>Прикрепить файл</p>
-					</div>
+					<FileInput />
+					
 					<Submit />
 				</Drop>
 			</div>

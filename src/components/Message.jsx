@@ -1,10 +1,10 @@
 import React from "react";
-import Field from "./Field";
+import Field from "./UI/Field";
 import { connect } from "react-redux";
 import {
 	updateMessageSubject,
 	updateMessageText,
-} from "./redux/message/message.actions";
+} from "../redux/message/message.actions";
 
 const Message = props => {
 	const { updateMessageSubject, updateMessageText, subject, text } = props;

@@ -1,10 +1,10 @@
 import React from "react";
-import Field from "./Field";
+import Field from "./UI/Field";
 import { connect } from "react-redux";
 import {
 	updateSenderName,
 	updateSenderEmail,
-} from "./redux/sender/sender.actions";
+} from "../redux/sender/sender.actions";
 
 const Sender = props => {
 	const {

@@ -14,7 +14,6 @@ const initialState = {
 const errors = (state = initialState, action) => {
 	switch (action.type) {
 		case "DISPLAY_INPUT_ERRORS":
-			console.log(action.payload)
 			return {
 				...state,
 				...action.payload,
