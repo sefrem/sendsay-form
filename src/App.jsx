@@ -5,6 +5,7 @@ import Message from "./components/Message";
 import Submit from "./components/Submit";
 import Drop from "./components/Drop";
 import FileInput from "./components/FileInput"
+import AttachedFiles from "./components/AttachedFiles"
 
 function App() {
 	return (
@@ -15,8 +16,8 @@ function App() {
 					<Sender />
 					<Receiver />
 					<Message />
+					<AttachedFiles />
 					<FileInput />
-					
 					<Submit />
 				</Drop>
 			</div>

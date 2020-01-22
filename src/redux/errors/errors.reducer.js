@@ -1,3 +1,5 @@
+import { DISPLAY_INPUT_ERRORS, DISPLAY_FILE_ERRORS } from "../types"
+
 const initialState = {
 	input: {
 	senderName: "",
@@ -13,12 +15,8 @@ const initialState = {
 
 const errors = (state = initialState, action) => {
 	switch (action.type) {
-		case "DISPLAY_INPUT_ERRORS":
-			return {
-				...state,
-				...action.payload,
-			};
-		case "DISPLAY_FILE_ERRORS":
+		case DISPLAY_INPUT_ERRORS:
+		case DISPLAY_FILE_ERRORS:
 			return {
 				...state,
 				...action.payload

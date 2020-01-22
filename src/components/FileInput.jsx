@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { validateFiles } from "../redux/files/files.actions"
 
 const FileInput = props => {
 	return (
@@ -26,14 +28,14 @@ const FileInput = props => {
 				name="file"
 				multiple
 				hidden
-				onChange={e => handleChange(e.target.files)}
+				onChange={e => props.validateFiles(e.target.files)}
 			/>
 		</div>
 	);
 };
 
-export default FileInput;
+const mapDispatchToProps = {
+	validateFiles
+  };
 
-const handleChange = files => {
-	console.log(files);
-};
+  export default connect(null, mapDispatchToProps)(FileInput);
