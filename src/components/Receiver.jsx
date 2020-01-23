@@ -26,6 +26,7 @@ const Receiver = props => {
 				onChange={updateReceiverName}
 				placeholder="Имя"
 				error={errorName}
+				errorMessage="Введите имя получателя"
 			/>
 			<Field
 				id="receiverEmail"
@@ -35,6 +36,7 @@ const Receiver = props => {
 				onChange={updateReceiverEmail}
 				placeholder="Email"
 				error={errorEmail}
+				errorMessage="Некорректный email"
 			/>
 		</div>
 	);

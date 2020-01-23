@@ -6,6 +6,8 @@ const initialState = {
 	senderEmail: "",
 	receiverName: "",
 	receiverEmail: "",
+	subject: "",
+	message: ""
 	},
 	files: {
 		type: "",
@@ -16,6 +18,10 @@ const initialState = {
 const errors = (state = initialState, action) => {
 	switch (action.type) {
 		case DISPLAY_INPUT_ERRORS:
+			return {
+				...state,
+				...action.payload
+			}
 		case DISPLAY_FILE_ERRORS:
 			return {
 				...state,

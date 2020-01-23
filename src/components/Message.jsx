@@ -7,7 +7,7 @@ import {
 } from "../redux/message/message.actions";
 
 const Message = props => {
-	const { updateMessageSubject, updateMessageText, subject, text } = props;
+	const { updateMessageSubject, updateMessageText, subject, text, errorSubject } = props;
 	return (
 		<div className="form__message">
 			<div className="form__subject">
@@ -18,6 +18,8 @@ const Message = props => {
 					name="subject"
 					value={subject}
 					onChange={updateMessageSubject}
+					error={errorSubject}
+					errorMessage="Заполните тему"
 				/>
 			</div>
 			<label className="form__label" htmlFor={"message"}>
@@ -44,6 +46,8 @@ const mapStateToProps = state => {
 	return {
 		subject: state.message.subject,
 		text: state.message.text,
+		errorSubject: state.errors.input.subject,
+		errorText: state.errors.input.text
 	};
 };
 

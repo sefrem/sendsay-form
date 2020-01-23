@@ -8,33 +8,36 @@ const inputValidationMiddleware = ({
 		return next(action);
 	}
 
-	const errors = {
-		input: {},
-	};
 	const {
 		sender: { name: senderName, email: senderEmail },
 		receiver: { name: receiverName, email: receiverEmail },
+		message: { subject, text },
 	} = getState();
-    const emailValidationRegEx = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$');
 
-	if (senderName === "") {
-		errors.input.senderName = "Введите имя отправителя";
-	}
-	if (receiverName === "") {
-		errors.input.receiverName = "Введите имя получателя";
-	}
-	if (!emailValidationRegEx.test(senderEmail)) {
-		senderEmail === ""
-			? (errors.input.senderEmail = "Введите email")
-			: (errors.input.senderEmail = "Некорректный email");
-	}
-	if (!emailValidationRegEx.test(receiverEmail)) {
-		receiverEmail === ""
-			? (errors.input.receiverEmail = "Введите email")
-			: (errors.input.receiverEmail = "Некорректный email");
-	}
-    dispatch(displayInputErrors(errors));
-    next(action)
+	const emptyInputValidation = input => {
+		return !input.length > 0;
+	};
+
+	const emailValidation = input => {
+		const emailValidationRegEx = new RegExp(
+			"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+		);
+		return !emailValidationRegEx.test(input);
+	};
+
+	const inputErrors = {
+		input: {
+			senderName: emptyInputValidation(senderName),
+			senderEmail: emailValidation(senderEmail),
+			receiverName: emptyInputValidation(receiverName),
+			receiverEmail: emailValidation(receiverEmail),
+			subject: emptyInputValidation(subject),
+			text: emptyInputValidation(text)
+		},
+	};
+
+	dispatch(displayInputErrors(inputErrors));
+	next(action);
 };
 
 export default inputValidationMiddleware;

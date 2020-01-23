@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { validateFiles } from "../redux/files/files.actions"
+import { validateFiles } from "../redux/files/files.actions";
 
 const FileInput = props => {
+	const { typeError, sizeError } = props;
 	return (
-		<div className="form__attachement">
-			<label htmlFor="file" className="form__attachement-label">
+		<div className="form__file-input">
+			<label htmlFor="file" className="form__file-input-label">
 				<svg
 					width="17"
 					height="15"
@@ -30,12 +31,23 @@ const FileInput = props => {
 				hidden
 				onChange={e => props.validateFiles(e.target.files)}
 			/>
+			<div className="form__file-input-error-message">
+			{typeError}
+			{sizeError}
+			</div>
 		</div>
 	);
 };
 
 const mapDispatchToProps = {
-	validateFiles
-  };
+	validateFiles,
+};
 
-  export default connect(null, mapDispatchToProps)(FileInput);
+const mapStateToProps = state => {
+	return {
+		typeError: state.errors.files.type,
+		sizeError: state.errors.files.size,
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FileInput);

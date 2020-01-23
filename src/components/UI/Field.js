@@ -10,6 +10,7 @@ const Field = props => {
 		onChange,
 		placeholder,
 		error,
+		errorMessage
 	} = props;
 	return (
 		<div className="form__field">
@@ -27,7 +28,7 @@ const Field = props => {
 			/>
 			{error ? (
 				<div className="form__error-message form__error-message_active">
-					{error}
+					{errorMessage}
 				</div>
 			) : (
 				<div className="form__error-message form__error-message_hidden"></div>

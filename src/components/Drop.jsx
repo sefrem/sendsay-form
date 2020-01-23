@@ -64,7 +64,6 @@ class Drop extends React.Component {
   }
 
   render() {
-    const { typeError, sizeError } = this.props;
     return (
       <div className="drag-drop" ref={this.dropRef}>
         {this.state.drag && (
@@ -78,12 +77,7 @@ class Drop extends React.Component {
             </div>
           </div>
         )}
-
         {this.props.children}
-        <div>
-          {typeError}
-          {sizeError}
-        </div>
       </div>
     );
   }
@@ -93,11 +87,4 @@ const mapDispatchToProps = {
   validateFiles
 };
 
-const mapStateToProps = state => {
-  return {
-    typeError: state.errors.files.type,
-    sizeError: state.errors.files.size
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Drop);
+export default connect(null, mapDispatchToProps)(Drop);
