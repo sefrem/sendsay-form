@@ -69,6 +69,10 @@
 	border-radius: 5px;
 }
 
+.form__message-text_error {
+	border-color: red
+}
+
 .form__submit {
 	width: 140px;
 	height: 40px;

@@ -1,43 +1,50 @@
-import { displayInputErrors } from "../redux/errors/errors.actions";
+import { displayInputErrors } from '../redux/errors/errors.actions'
+import { sendMessage } from "../redux/sendMessage/sendMessage.actions"
+import { SEND_MESSAGE } from '../redux/types'
+import {
+  emptyInputValidation,
+  emailValidation,
+} from '../utils/validationHelpers'
 
 const inputValidationMiddleware = ({
-	dispatch,
-	getState,
+  dispatch,
+  getState,
 }) => next => action => {
-	if (action.type !== "SEND_MESSAGE") {
-		return next(action);
-	}
+  if (action.type !== SEND_MESSAGE) {
+    return next(action)
+  }
 
-	const {
-		sender: { name: senderName, email: senderEmail },
-		receiver: { name: receiverName, email: receiverEmail },
-		message: { subject, text },
-	} = getState();
+  const {
+    sender: { name: senderName, email: senderEmail },
+    receiver: { name: receiverName, email: receiverEmail },
+    message: { subject, text },
+  } = getState()
 
-	const emptyInputValidation = input => {
-		return !input.length > 0;
-	};
+  const inputErrors = {
+    input: {
+      senderName: emptyInputValidation(senderName),
+      senderEmail: emailValidation(senderEmail),
+      receiverName: emptyInputValidation(receiverName),
+      receiverEmail: emailValidation(receiverEmail),
+      subject: emptyInputValidation(subject),
+      text: emptyInputValidation(text),
+    },
+  }
 
-	const emailValidation = input => {
-		const emailValidationRegEx = new RegExp(
-			"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
-		);
-		return !emailValidationRegEx.test(input);
-	};
+  // fireweb2112@gmail.com
+  // spiefr@yandex.ru
 
-	const inputErrors = {
-		input: {
-			senderName: emptyInputValidation(senderName),
-			senderEmail: emailValidation(senderEmail),
-			receiverName: emptyInputValidation(receiverName),
-			receiverEmail: emailValidation(receiverEmail),
-			subject: emptyInputValidation(subject),
-			text: emptyInputValidation(text)
-		},
-	};
+  function inputsAreValid(errors) {
+    let result = !Object.values(errors).some(err => err)
+    return result
+  }
 
-	dispatch(displayInputErrors(inputErrors));
-	next(action);
-};
+  dispatch(displayInputErrors(inputErrors))
 
-export default inputValidationMiddleware;
+  if (inputsAreValid(inputErrors.input)) {
+    next(action)
+  } 
+ 
+}
+
+export default inputValidationMiddleware

@@ -1,54 +1,61 @@
-import React from "react";
-import Field from "./UI/Field";
-import { connect } from "react-redux";
+import React from 'react'
+import InputField from './UI/InputField'
+import TextareaField from './UI/TextareaField'
+import { connect } from 'react-redux'
 import {
-	updateMessageSubject,
-	updateMessageText,
-} from "../redux/message/message.actions";
+  updateMessageSubject,
+  updateMessageText,
+} from '../redux/message/message.actions'
 
 const Message = props => {
-	const { updateMessageSubject, updateMessageText, subject, text, errorSubject } = props;
-	return (
-		<div className="form__message">
-			<div className="form__subject">
-				<Field
-					labelText="Тема письма"
-					id="subject"
-					type="text"
-					name="subject"
-					value={subject}
-					onChange={updateMessageSubject}
-					error={errorSubject}
-					errorMessage="Заполните тему"
-				/>
-			</div>
-			<label className="form__label" htmlFor={"message"}>
-				{"Сообщение"}
-			</label>
-			<textarea
-				className="form__message-text"
-				id="message"
-				type="text"
-				name="text"
-				value={text}
-				onChange={updateMessageText}
-			></textarea>
-		</div>
-	);
-};
+  const {
+    updateMessageSubject,
+    updateMessageText,
+    subject,
+    text,
+    errorSubject,
+    errorText,
+  } = props
+  return (
+    <div className="form__message">
+      <div className="form__subject">
+        <InputField
+          labelText="Тема письма"
+          id="subject"
+          type="text"
+          name="subject"
+          value={subject}
+          onChange={updateMessageSubject}
+          error={errorSubject}
+          errorMessage="Заполните тему"
+        />
+      </div>
+      <TextareaField
+        labelText="Сообщение"
+        id="text"
+        type="text"
+        name="text"
+        value={text}
+        onChange={updateMessageText}
+        error={errorText}
+        errorMessage="Введите текст. Ну хоть какой-нибудь :-)"
+      />
+    </div>
+  )
+}
 
 const mapDispatchToProps = {
-	updateMessageSubject,
-	updateMessageText,
-};
+  updateMessageSubject,
+  updateMessageText,
+}
 
 const mapStateToProps = state => {
-	return {
-		subject: state.message.subject,
-		text: state.message.text,
-		errorSubject: state.errors.input.subject,
-		errorText: state.errors.input.text
-	};
-};
+  return {
+    subject: state.message.subject,
+    text: state.message.text,
+    errorSubject: state.errors.input.subject,
+    errorText: state.errors.input.text,
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Message);
+export default connect(mapStateToProps, mapDispatchToProps)(Message)
