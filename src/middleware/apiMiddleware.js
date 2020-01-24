@@ -1,55 +1,55 @@
-import Sendsay from 'sendsay-api'
-import { SEND_MESSAGE } from '../redux/types'
+import Sendsay from "sendsay-api";
+import { MESSAGE_SENT } from "../redux/types";
+import { addToSent } from "../redux/sendMessage/sendMessage.actions"
 
 const apiMiddleware = ({ dispatch, getState }) => next => action => {
-  if (action.type !== SEND_MESSAGE) {
-    return next(action)
-  }
+	if (action.type !== MESSAGE_SENT) {
+		return next(action);
+	}
 
-  const {
-    sender: { name: senderName, email: senderEmail },
-    receiver: { name: receiverName, email: receiverEmail },
-    message: { subject, text },
-  } = getState()
+	const {
+		sender: { name: senderName, email: senderEmail },
+		receiver: { name: receiverName, email: receiverEmail },
+		message: { subject, text },
+		files,
+  } = getState();
 
-  const sendsay = new Sendsay({
-    auth: {
-      login: 'fireweb2112@gmail.com',
-      password: 'thi7Musam',
-    },
-  })
+	const sendsay = new Sendsay({
+		auth: {
+			login: process.env.REACT_APP_LOGIN,
+			password: process.env.REACT_APP_PASSWORD,
+		},
+	});
 
-  sendsay.request({ action: 'sys.settings.get', list: ['about.id']}).then(function(res) {
-    sendsay.setSession(res.sendsay_session);
-  })
+	sendsay
+		.request({
+			action: "issue.send.test",
+			letter: {
+				subject: `${subject}`,
+				"from.name": `${senderName}`,
+				"from.email": `${senderEmail}`,
+				"to.name": `${receiverName}`,
+				message: { text: `${text}` },
+				attaches: [...files],
+			},
+			sendwhen: "test",
+			mca: [`${receiverEmail}`],
+		})
+		.then(result => {
+    dispatch(addToSent({id: result['track.id'], subject: `${subject}`}))
+			
+    });
+    
 
-  sendsay
-    .request({
-      'action' : "issue.send.test",
-      'letter' : {
-        'subject' : {subject},
-        'from.name' : {senderName} ,
-        "from.email" : {senderEmail},
-        "to.name" : {receiverName},
-        "message": { "text" : {text} },
-        "attaches": [ 
-                      {
-                        "name" : "имя файла",
-                        "content": "содержимое файла закодированное base64",
-                        "encoding" : "base64",
-                      }
-                    ]
-      },
-      "sendwhen": "test",
-      "mca": [
-        {receiverEmail},
-      ]
-    })
-    .then(result => {
-      console.log(result)
-    })
+	const getStatus = id => {
+		const sendsay = new Sendsay();
 
-  next(action)
-}
+		sendsay.request({
+      
+    });
+	};
 
-export default apiMiddleware
+	next(action);
+};
+
+export default apiMiddleware;

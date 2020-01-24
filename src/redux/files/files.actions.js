@@ -5,14 +5,15 @@ export const addFiles = payload => {
 
   for (let file of payload) {
     const fileInfo = {}
-    fileInfo.name = file.name
+    fileInfo['name'] = file.name
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onload = () => {
-      fileInfo.content = reader.result
+      const filteredContent = reader.result.substring(reader.result.indexOf(',')+1)
+      fileInfo['content'] = filteredContent
     }
 
-    fileInfo.encoding = 'base64'
+    fileInfo['encoding'] = 'base64'
     fileData.push(fileInfo)
   }
   return {

@@ -1,13 +1,16 @@
-import { SEND_MESSAGE } from '../types'
+import { MESSAGE_SENT, ADD_TO_SENT } from '../types'
 
-const sendMessage = (state = null, action) => {
+const sentMessage = (state = [], action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
+    case MESSAGE_SENT:
       console.log('sending the message')
-      return null
+      return state
+    case ADD_TO_SENT:
+        console.log(action.payload)
+      return [...state, action.payload]
     default:
       return state
   }
 }
 
-export default sendMessage
+export default sentMessage
