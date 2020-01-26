@@ -2,17 +2,17 @@ import { DISPLAY_INPUT_ERRORS, DISPLAY_FILE_ERRORS } from '../types'
 
 const initialState = {
   input: {
-    senderName: '',
-    senderEmail: '',
-    receiverName: '',
-    receiverEmail: '',
-    subject: '',
-    message: '',
+    senderName: false,
+    senderEmail: false,
+    receiverName: false,
+    receiverEmail: false,
+    subject: false,
+    message: false,
   },
   files: {
-    type: '',
-    singleFileSize: '',
-    totalFilesSize: '',
+    type: false,
+    singleFileSize: false,
+    totalFilesSize: false,
   },
 }
 

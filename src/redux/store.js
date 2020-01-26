@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import inputValidationMiddleware from '../middleware/inputValidationMiddleware'
 import filesValidationMiddleware from '../middleware/filesValidationMiddleware'
 import apiMiddleware from '../middleware/apiMiddleware'
+import statusUpdateMiddleware from '../middleware/statusUpdateMiddleware'
 
 const store = createStore(
   reducerApp,
@@ -11,7 +12,8 @@ const store = createStore(
     applyMiddleware(
       inputValidationMiddleware,
       filesValidationMiddleware,
-      apiMiddleware
+      apiMiddleware,
+      statusUpdateMiddleware
     )
   )
 )

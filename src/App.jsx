@@ -6,10 +6,12 @@ import Submit from './components/Submit'
 import Drop from './components/Drop'
 import FileInput from './components/FileInput'
 import AttachedFiles from './components/AttachedFiles'
+import SentMessages from "./components/SentMessages/SentMessages"
 
 
 function App() {
   return (
+    <div>
     <div className="form">
       <div className="form__content-wrapper">
         <Drop>
@@ -22,6 +24,8 @@ function App() {
           <Submit />
         </Drop>
       </div>
+    </div>
+    <SentMessages />
     </div>
   )
 }

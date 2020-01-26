@@ -30,20 +30,13 @@ const inputValidationMiddleware = ({
     },
   }
 
-  // fireweb2112@gmail.com
-  // spiefr@yandex.ru
-
-  function inputsAreValid(errors) {
-    let result = !Object.values(errors).some(err => err)
-    return result
-  }
+  const inputsAreValid = errors => !Object.values(errors).some(err => err)
 
   dispatch(displayInputErrors(inputErrors))
 
   if (inputsAreValid(inputErrors.input)) {
     next(action)
-  } 
- 
+  }
 }
 
 export default inputValidationMiddleware

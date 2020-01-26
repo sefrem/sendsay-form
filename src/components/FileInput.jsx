@@ -32,9 +32,9 @@ const FileInput = props => {
         onChange={e => props.validateFiles(e.target.files)}
       />
       <div className="form__file-input-error-message">
-        {typeError ? "Не поддержваемый тип файла" : null}
-        {fileSizeError ? 'Размер одного файла не должен превышать 5МБ' : null}
-        {totalSizeError ? 'Общий размер файлов не должен превышать 20МБ' : null}
+        <div>{typeError ? "Не поддержваемый тип файла" : null}</div>
+        <div>{fileSizeError ? 'Размер одного файла не должен превышать 5МБ' : null}</div>
+        <div>{totalSizeError ? 'Общий размер файлов не должен превышать 20МБ' : null}</div>
       </div>
     </div>
   )
