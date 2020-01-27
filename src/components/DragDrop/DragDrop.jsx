@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { validateFiles } from '../redux/files/files.actions'
+import { validateFiles } from '../../redux/files/files.actions'
+import DragDropComponent from './DragDropComponent'
 
-class Drop extends React.Component {
+class DragDrop extends React.Component {
   state = {
     drag: false,
   }
@@ -66,17 +67,7 @@ class Drop extends React.Component {
   render() {
     return (
       <div className="drag-drop" ref={this.dropRef}>
-        {this.state.drag && (
-          <div className="drag-drop__cover">
-            <div className="drag-drop__info">
-              <p className="drag-drop__text">Бросайте файлы сюда, я ловлю</p>
-              <p className="drag-drop__message">
-                Мы принимаем картинки (jpg, png, gif), офисные файлы (doc, xls,
-                pdf) и zip-архивы. Размеры файла до 5 МБ
-              </p>
-            </div>
-          </div>
-        )}
+        <DragDropComponent drag={this.state.drag} />
         {this.props.children}
       </div>
     )
@@ -87,4 +78,4 @@ const mapDispatchToProps = {
   validateFiles,
 }
 
-export default connect(null, mapDispatchToProps)(Drop)
+export default connect(null, mapDispatchToProps)(DragDrop)

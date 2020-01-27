@@ -1,9 +1,6 @@
 import Sendsay from 'sendsay-api'
 import { MESSAGE_SENT } from '../redux/types'
-import {
-  addToSent,
-  updateMessageStatus,
-} from '../redux/sentMessage/sentMessage.actions'
+import { addToSent } from '../redux/sentMessage/sentMessage.actions'
 
 const apiMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type !== MESSAGE_SENT) {
