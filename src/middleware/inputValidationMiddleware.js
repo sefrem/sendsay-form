@@ -1,5 +1,5 @@
 import { displayInputErrors } from '../redux/errors/errors.actions'
-import { MESSAGE_SENT } from '../redux/types'
+import { SUBMIT_MESSAGE } from '../redux/sentMessage/sentMessage.types'
 import {
   emptyInputValidation,
   emailValidation,
@@ -9,7 +9,7 @@ const inputValidationMiddleware = ({
   dispatch,
   getState,
 }) => next => action => {
-  if (action.type !== MESSAGE_SENT) {
+  if (action.type !== SUBMIT_MESSAGE) {
     return next(action)
   }
 

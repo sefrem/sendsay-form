@@ -1,4 +1,4 @@
-import { ADD_FILES, VALIDATE_FILES, REMOVE_FILE } from '../types'
+import { ADD_FILES, VALIDATE_FILES, REMOVE_FILE, CLEAR_FILES } from './files.types'
 
 export const addFiles = payload => {
   const fileData = []
@@ -25,7 +25,7 @@ export const addFiles = payload => {
 export const validateFiles = payload => {
   return {
     type: VALIDATE_FILES,
-    payload,
+    payload
   }
 }
 
@@ -33,5 +33,11 @@ export const removeFile = payload => {
   return {
     type: REMOVE_FILE,
     payload,
+  }
+}
+
+export const clearAttachedFiles = () => {
+  return {
+    type: CLEAR_FILES,
   }
 }

@@ -1,8 +1,8 @@
-import { MESSAGE_SENT, ADD_TO_SENT, UPDATE_MESSAGE_STATUS, UPDATE_MESSAGE_STAT } from '../types'
+import { SUBMIT_MESSAGE, ADD_TO_SENT, UPDATE_MESSAGE_STATUS, UPDATE__STATUS } from './sentMessage.types'
 
-export const sendMessage = payload => {
+export const submitMessage = payload => {
   return {
-    type: MESSAGE_SENT,
+    type: SUBMIT_MESSAGE,
     payload,
   }
 }
@@ -30,9 +30,9 @@ export const updateMessageStatus = payload => {
   }
 }
 
-export const updateMessageStat = payload => {
+export const updateStatus = payload => {
   return {
-    type: UPDATE_MESSAGE_STAT,
+    type: UPDATE__STATUS,
     payload
   }
 }

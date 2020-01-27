@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { sendMessage } from '../redux/sentMessage/sentMessage.actions'
+import { submitMessage } from '../redux/sentMessage/sentMessage.actions'
 
 const Submit = props => {
   const onSubmit = () => {
-    const { sendMessage } = props
-    sendMessage()
+    const { submitMessage } = props
+    submitMessage()
   }
 
   return (
@@ -19,7 +19,7 @@ const Submit = props => {
 }
 
 const mapDispatchToProps = {
-  sendMessage,
+  submitMessage,
 }
 
 export default connect(null, mapDispatchToProps)(Submit)

@@ -1,4 +1,4 @@
-import { DISPLAY_INPUT_ERRORS, DISPLAY_FILE_ERRORS } from '../types'
+import { DISPLAY_INPUT_ERRORS, DISPLAY_FILE_ERRORS } from './errors.types'
 
 const initialState = {
   input: {

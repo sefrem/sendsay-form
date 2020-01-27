@@ -1,4 +1,4 @@
-import { UPDATE_SENDER_NAME, UPDATE_SENDER_EMAIL } from '../types'
+import { UPDATE_SENDER_NAME, UPDATE_SENDER_EMAIL, CLEAR_SENDER } from './sender.types'
 
 const initialState = {
   name: '',
@@ -14,6 +14,8 @@ const sender = (state = initialState, action) => {
         ...state,
         [action.payload.target.name]: action.payload.target.value,
       }
+    case CLEAR_SENDER:
+      return {...state, ...initialState}
     default:
       return state
   }

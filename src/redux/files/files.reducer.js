@@ -1,4 +1,4 @@
-import { ADD_FILES, VALIDATE_FILES, REMOVE_FILE } from '../types'
+import { ADD_FILES, VALIDATE_FILES, REMOVE_FILE, CLEAR_FILES } from './files.types'
 
 const files = (state = [], action) => {
   switch (action.type) {
@@ -9,6 +9,8 @@ const files = (state = [], action) => {
     case REMOVE_FILE:
       const newState = state.filter(file => file.name !== action.payload)
       return newState
+    case CLEAR_FILES:
+      return []
     default:
       return state
   }

@@ -1,9 +1,10 @@
 import Sendsay from 'sendsay-api'
-import { MESSAGE_SENT } from '../redux/types'
+import { SUBMIT_MESSAGE } from '../redux/sentMessage/sentMessage.types'
 import { addToSent } from '../redux/sentMessage/sentMessage.actions'
+import { toggleModal } from '../redux/modal/modal.actions'
 
-const apiMiddleware = ({ dispatch, getState }) => next => action => {
-  if (action.type !== MESSAGE_SENT) {
+const submitMessageMiddleware = ({ dispatch, getState }) => next => action => {
+  if (action.type !== SUBMIT_MESSAGE) {
     return next(action)
   }
 
@@ -18,8 +19,10 @@ const apiMiddleware = ({ dispatch, getState }) => next => action => {
 
   sendsay
     .login({
-      login: process.env.REACT_APP_LOGIN,
-      password: process.env.REACT_APP_PASSWORD,
+      login: 'fireweb2112@gmail.com',
+      password: 'thi7Musam'
+      // login: process.env.REACT_APP_LOGIN,
+      // password: process.env.REACT_APP_PASSWORD,
     })
     .then(res => {
       sendsay
@@ -38,10 +41,11 @@ const apiMiddleware = ({ dispatch, getState }) => next => action => {
         })
         .then(response => {
           dispatch(addToSent({ id: response['track.id'], subject: subject }))
+          dispatch(toggleModal())
         })
     })
 
   next(action)
 }
 
-export default apiMiddleware
+export default submitMessageMiddleware

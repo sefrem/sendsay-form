@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware } from 'redux'
 import reducerApp from './rootReducer'
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import inputValidationMiddleware from '../middleware/inputValidationMiddleware'
 import filesValidationMiddleware from '../middleware/filesValidationMiddleware'
-import apiMiddleware from '../middleware/apiMiddleware'
+import submitMessageMiddleware from '../middleware/submitMessageMiddleware'
 import statusUpdateMiddleware from '../middleware/statusUpdateMiddleware'
 
 const store = createStore(
@@ -12,8 +13,9 @@ const store = createStore(
     applyMiddleware(
       inputValidationMiddleware,
       filesValidationMiddleware,
-      apiMiddleware,
-      statusUpdateMiddleware
+      submitMessageMiddleware,
+      statusUpdateMiddleware,
+      thunk
     )
   )
 )

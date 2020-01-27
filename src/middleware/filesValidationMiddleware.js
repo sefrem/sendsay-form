@@ -1,6 +1,6 @@
 import { displayFileErrors } from '../redux/errors/errors.actions'
 import { addFiles } from '../redux/files/files.actions'
-import { VALIDATE_FILES } from '../redux/types'
+import { VALIDATE_FILES } from '../redux/files/files.types'
 
 const filesValidationMiddleware = ({ dispatch }) => next => action => {
   if (action.type !== VALIDATE_FILES) {

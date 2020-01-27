@@ -1,13 +1,13 @@
 import {
-  MESSAGE_SENT,
+  SUBMIT_MESSAGE,
   ADD_TO_SENT,
   UPDATE_MESSAGE_STATUS,
-  UPDATE_MESSAGE_STAT,
-} from '../types'
+  UPDATE__STATUS,
+} from './sentMessage.types'
 
 const sentMessage = (state = {}, action) => {
   switch (action.type) {
-    case MESSAGE_SENT:
+    case SUBMIT_MESSAGE:
     case UPDATE_MESSAGE_STATUS:
       return state
     case ADD_TO_SENT:
@@ -19,7 +19,7 @@ const sentMessage = (state = {}, action) => {
         status: null,
       }}
       return {...state, ...newState}
-    case UPDATE_MESSAGE_STAT:
+    case UPDATE__STATUS:
       return {
         ...state,
         [action.payload.id]: {

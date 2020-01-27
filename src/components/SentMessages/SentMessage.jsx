@@ -20,7 +20,7 @@ const SentMessage = props => {
     statusMessage = 'Ошибка'
   }
   useEffect(() => {
-    if (status !== -1) {
+    if (status > -1) {
       let timer = setInterval(() => {
         updateMessageStatus(id)
       }, 5000)
