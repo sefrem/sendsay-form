@@ -11,6 +11,7 @@ export const addFiles = payload => {
     reader.onload = () => {
       const filteredContent = reader.result.substring(reader.result.indexOf(',')+1)
       fileInfo['content'] = filteredContent
+      console.log(reader)
     }
 
     fileInfo['encoding'] = 'base64'

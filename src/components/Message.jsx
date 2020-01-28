@@ -38,7 +38,7 @@ const Message = props => {
         value={text}
         onChange={updateMessageText}
         error={errorText}
-        errorMessage="Введите текст. Ну хоть какой-нибудь :-)"
+        errorMessage="Введите текст"
       />
     </div>
   )

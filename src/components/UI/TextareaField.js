@@ -30,7 +30,10 @@ const TextareaField = props => {
         onChange={onChange}
       ></textarea>
       {error ? (
-        <div className="form__error-message form__error-message_active">
+        <div
+          data-error={id}
+          className="form__error-message form__error-message_active"
+        >
           {errorMessage}
         </div>
       ) : (
