@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { submitMessage } from '../redux/sentMessage/sentMessage.actions'
+import SubmitButton from '../components/UI/SubmitButton'
 
 const Submit = props => {
   const onSubmit = () => {
@@ -8,14 +9,7 @@ const Submit = props => {
     submitMessage()
   }
 
-  return (
-    <input
-      type="submit"
-      value="Отправить"
-      className="form__submit"
-      onClick={onSubmit}
-    ></input>
-  )
+  return <SubmitButton value="Отправить" onClick={onSubmit} />
 }
 
 const mapDispatchToProps = {
