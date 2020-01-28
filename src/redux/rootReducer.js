@@ -3,7 +3,7 @@ import sender from './sender/sender.reducer'
 import receiver from './receiver/receiver.reducer'
 import message from './message/message.reducer'
 import errors from './errors/errors.reducer'
-import files from './files/files.reducer'
+import attachedFiles from './attachedFiles/attachedFiles.reducer'
 import sentMessage from './sentMessage/sentMessage.reducer'
 import modal from './modal/modal.reducer'
 
@@ -12,7 +12,7 @@ const reducerApp = combineReducers({
   receiver,
   message,
   errors,
-  files,
+  attachedFiles,
   sentMessage,
   modal
 })

@@ -17,8 +17,8 @@ const Message = props => {
     errorText,
   } = props
   return (
-    <div className="form__message">
-      <div className="form__subject">
+    <div className="message">
+      <div className="message__subject">
         <InputField
           labelText="Тема письма"
           id="subject"

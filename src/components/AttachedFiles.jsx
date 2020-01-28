@@ -1,30 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeFile } from '../redux/files/files.actions'
+import { removeFile } from '../redux/attachedFiles/attachedFiles.actions'
 import TrashIcon from './UI/Icons/TrashIcon'
 import BigPaperclipIcon from './UI/Icons/BigPaperclipIcon'
 
 const AttachedFiles = props => {
   const { files, removeFile } = props
   return (
-    <div className="form__attachements">
+    <div className="list">
       {files.map((file, index) => (
-        <div className="form__attachement" key={index}>
+        <div className="attachement" key={index}>
           <BigPaperclipIcon />
-          <div className="form__attachement-name">
-            <div className="form__attachement-first-name">
+          <div className="attachement__name">
+            <div className="attachement__file-name">
               {file.name.substring(0, file.name.lastIndexOf('.'))}
             </div>
-            <div className="form__attachement-type">{`.${file.name.substring(
+            <div>{`.${file.name.substring(
               file.name.lastIndexOf('.') + 1
             )}`}</div>
           </div>
           <div
-            className="form__attachement-remove"
-            onClick={() => removeFile(file.name)}
+            className="attachement__remove"
+            onClick={() => removeFile(file)}
           >
             <TrashIcon />
-            <span className="form__attachement-remove-label">Удалить</span>
+            <span className="attachement__remove-label">Удалить</span>
           </div>
         </div>
       ))}
@@ -38,7 +38,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = state => {
   return {
-    files: state.files,
+    files: state.attachedFiles.files,
   }
 }
 

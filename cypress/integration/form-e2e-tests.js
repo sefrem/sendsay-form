@@ -39,25 +39,25 @@ describe('Тестируем форму отправки емэйлов', () => 
     // })
 
     // it('Добавленный через drag&drop файл должен отображаться в списке добавленных файлов и удаляться по нажатию на "Удалить"', () => {
-    //   cy.uploadValidFileviaDragDrop('validFile1.jpg')
-    //   cy.removeFile('validFile1.jpg')
+    //   cy.uploadValidFileviaDragDrop('validFile.jpg')
+    //   cy.removeFile('validFile.jpg')
     // })
 
     // it('Добавленный через input файл должен отображаться в списке добавленных файлов и удаляться по нажатию на "Удалить"', () => {
-    //   cy.uploadValidFileviaInput('validFile1.jpg')
-    //   cy.removeFile('validFile1.jpg')
+    //   cy.uploadValidFileviaInput('validFile.jpg')
+    //   cy.removeFile('validFile.jpg')
     // })
 
     // it('При добавлении файла неподходящего формата должна появляться ошибка', () => {
-    //   cy.uploadInvalidFile('invalidFile.json')
+    //   cy.uploadInvalidTypeFile('invalidTypeFile.json')
     // })
 
-    it('При добавлении файла неподходящего формата должна появляться ошибка', () => {
-      cy.uploadInvalidTypeFile('invalidTypeFile.json')
-    })
+    // it('При добавлении файла больше 5МБ должна появляться ошибка', () => {
+    //   cy.uploadTooLargeFile('tooLargeFile.pdf')
+    // })
 
-    it('При добавлении слишком большого файла должна появляться ошибка', () => {
-      cy.uploadTooLargeFile('tooLargeFile.pdf')
-    })
+    // it('При добавлении файлов общим объемом более 20МБ должна появляться ошибка', () => {
+    //   cy.uploadTotalTooLarge()
+    // })
   })
 })

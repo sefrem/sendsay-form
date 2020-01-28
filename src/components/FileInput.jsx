@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { validateFiles } from '../redux/files/files.actions'
+import { validateFiles } from '../redux/attachedFiles/attachedFiles.actions'
 import SmallPaperclipIcon from './UI/Icons/SmallPaperclipIcon'
 
 const FileInput = props => {
@@ -21,7 +21,7 @@ const FileInput = props => {
       />
       <div className="form__file-input-error-message">
         <div data-error='type'>{typeError ? 'Не поддерживаемый тип файла' : null}</div>
-        <div date-error="singleFileSize">
+        <div data-error="singleFileSize">
           {fileSizeError ? 'Размер одного файла не должен превышать 5МБ' : null}
         </div>
         <div data-error="totalSize">

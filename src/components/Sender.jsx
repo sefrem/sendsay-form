@@ -16,7 +16,7 @@ const Sender = props => {
     errorEmail,
   } = props
   return (
-    <div className="form__field-group">
+    <div className="field-group">
       <InputField
         labelText="От кого"
         id="senderName"

@@ -1,5 +1,5 @@
 import * as types from './modal.types'
-import { clearAttachedFiles } from '../files/files.actions'
+import { clearAttachedFiles } from '../attachedFiles/attachedFiles.actions'
 import { clearMessage } from '../message/message.actions'
 import { clearReceiver } from '../receiver/receiver.actions'
 import { clearSender } from '../sender/sender.actions'

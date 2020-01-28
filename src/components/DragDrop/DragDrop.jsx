@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { validateFiles } from '../../redux/files/files.actions'
+import { validateFiles } from '../../redux/attachedFiles/attachedFiles.actions'
 import DragDropComponent from './DragDropComponent'
 
 class DragDrop extends React.Component {

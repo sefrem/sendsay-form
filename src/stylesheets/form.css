@@ -11,25 +11,25 @@
 	margin: 30px auto;
 }
 
-.form__header {
+.header {
 	font-size: 30px;
 	line-height: 40px;
 	margin-bottom: 20px;
 }
 
-.form__field-group {
+.field-group {
 	display: flex;
 	align-items: flex-end;
 	margin-bottom: 5px;
 }
 
-.form__field {
+.field {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
 }
 
-.form__label {
+.label {
 	display: inline-block;
 	font-size: 16px;
 	line-height: 20px;
@@ -37,31 +37,31 @@
 	color: rgba(0, 0, 0, 0.6);
 }
 
-.form__input {
+.field__input {
 	padding: 5px;
 	border: 1px solid #dddddd;
 	border-radius: 5px;
 }
 
-.form__input_error {
+.field__input_error {
 	border-color: red;
 }
 
-.form__error-message_active {
+.error__message_active {
 	font-size: 12px;
 	color: red;
 }
 
-.form__error-message_hidden {
+.error__message_hidden {
 	height: 15px;
 	visibility: hidden;
 }
 
-.form__subject {
+.message__subject {
 	margin-bottom: 20px;
 }
 
-.form__message-text {
+.message__text {
 	width: 740px;
 	height: 140px;
 	resize: none;
@@ -69,7 +69,7 @@
 	border-radius: 5px;
 }
 
-.form__message-text_error {
+.message__text_error {
 	border-color: red
 }
 
@@ -95,13 +95,13 @@
 	color: red;
 }
 
-.form__attachements {
+.list {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
 }
 
-.form__attachement {
+.attachement {
 	display: grid;
 	width: 365px;
 	grid-template-columns: 60px 1fr 100px;
@@ -113,28 +113,28 @@
 	align-items: center;
 }
 
-.form__attachement-clip-icon {
+.big-clip-icon {
 	justify-self: center;
 }
 
-.form__attachement-name {
+.attachement__name {
 	display: flex;
 	width: 180px;
 	justify-content: flex-start;
 }
 
-.form__attachement-first-name {
+.attachement__file-name {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.form__attachement-remove {
+.attachement__remove {
 	cursor: pointer;
 	justify-self: flex-start;
 }
 
-.form__attachement-remove-label {
+.ttachement__remove-label {
 	font-size: 16px;
 	color: #ff6666;
 	margin-left: 5px;

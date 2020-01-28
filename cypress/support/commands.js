@@ -1,5 +1,5 @@
 import 'cypress-file-upload'
-import 'cypress-wait-until';
+import 'cypress-wait-until'
 
 Cypress.Commands.add('checkIfInputIsVisible', id =>
   cy.get(`input[id=${id}]`).should('be.visible')
@@ -23,7 +23,7 @@ Cypress.Commands.add('uploadValidFileviaDragDrop', filename => {
   cy.fixture(`files/${filename}`).then(fileContent => {
     cy.get('.drag-drop').upload(
       {
-        fileContent: fileContent.toString(),
+        fileContent: fileContent,
         fileName: filename,
         mimeType: 'image/jpeg',
       },
@@ -41,7 +41,7 @@ Cypress.Commands.add('removeFile', filename => {
 Cypress.Commands.add('uploadValidFileviaInput', filename => {
   cy.fixture(`files/${filename}`).then(fileContent => {
     cy.get('input[id="file"]').upload({
-      fileContent: fileContent.toString(),
+      fileContent: fileContent,
       fileName: filename,
       mimeType: 'image/jpeg',
     })
@@ -51,30 +51,51 @@ Cypress.Commands.add('uploadValidFileviaInput', filename => {
 
 Cypress.Commands.add('uploadInvalidTypeFile', filename => {
   cy.fixture('errorMessages.json').then(errorMessages => {
-
-  cy.fixture(`files/${filename}`).then(fileContent => {
-    cy.get('input[id="file"]').upload({
-      fileContent: fileContent.toString(),
-      fileName: filename,
-      mimeType: 'application/json',
+    cy.fixture(`files/${filename}`).then(fileContent => {
+      cy.get('input[id="file"]').upload({
+        fileContent: fileContent,
+        fileName: filename,
+        mimeType: 'application/json',
+      })
     })
-  }).then(() => {
     cy.checkIfErrorIsShown('type', errorMessages.errorType)
   })
-})
 })
 
 Cypress.Commands.add('uploadTooLargeFile', filename => {
   cy.fixture('errorMessages.json').then(errorMessages => {
-
-  cy.fixture(`files/${filename}`).then(fileContent => {
-    cy.waitUntil(() => cy.get('input[id="file"]').upload({
-      fileContent: fileContent.toString(),
-      fileName: filename,
-      mimeType: 'application/pdf',
-    }).then(() => {
-      cy.checkIfErrorIsShown('singleFileSize', errorMessages.errorSingleFileSize)
+    cy.fixture(`files/${filename}`).then(fileContent => {
+      cy.get('input[id="file"]').upload({
+        fileContent: fileContent,
+        fileName: filename,
+        mimeType: 'application/pdf',
+      })
+      cy.checkIfErrorIsShown(
+        'singleFileSize',
+        errorMessages.errorSingleFileSize
+      )
     })
   })
 })
+
+Cypress.Commands.add('uploadTotalTooLarge', () => {
+  cy.fixture('errorMessages.json').then(errorMessages => {
+    let files = [
+      'files/totalSizeTooLarge/validFile1.jpg',
+      'files/totalSizeTooLarge/validFile2.jpg',
+      'files/totalSizeTooLarge/validFile3.jpg',
+      'files/totalSizeTooLarge/validFile4.jpg',
+      'files/totalSizeTooLarge/validFile5.jpg',
+    ]
+    files.map(file => {
+      cy.fixture(`${file}`).then(fileContent => {
+        cy.get('input[id="file"]').upload({
+          fileContent: fileContent,
+          fileName: file,
+          mimeType: 'image/png',
+        })
+      })
+    })
+    cy.checkIfErrorIsShown('totalSize', errorMessages.errorMultipleFilesSize)
+  })
 })

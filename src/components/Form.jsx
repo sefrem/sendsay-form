@@ -17,7 +17,7 @@ const Form = props => {
           <Modal />
         ) : (
           <DragDrop>
-            <div className="form__header">Отправлялка сообщений</div>
+            <div className="header">Отправлялка сообщений</div>
             <Sender />
             <Receiver />
             <Message />

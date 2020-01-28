@@ -1,4 +1,5 @@
 import React from 'react'
+import Error from './Error'
 
 const TextareaField = props => {
   const {
@@ -14,14 +15,12 @@ const TextareaField = props => {
 
   return (
     <div>
-      <label className="form__label" htmlFor={id}>
+      <label className="label" htmlFor={id}>
         {labelText}
       </label>
       <textarea
         className={
-          error
-            ? 'form__message-text form__message-text_error'
-            : 'form__message-text'
+          error ? 'message__text message__text_error' : 'message__text'
         }
         id={id}
         type={type}
@@ -29,16 +28,7 @@ const TextareaField = props => {
         value={value}
         onChange={onChange}
       ></textarea>
-      {error ? (
-        <div
-          data-error={id}
-          className="form__error-message form__error-message_active"
-        >
-          {errorMessage}
-        </div>
-      ) : (
-        <div className="form__error-message form__error-message_hidden"></div>
-      )}
+      <Error error={error} id={id} errorMessage={errorMessage} />
     </div>
   )
 }

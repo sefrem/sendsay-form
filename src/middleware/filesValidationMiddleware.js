@@ -1,8 +1,8 @@
 import { displayFileErrors } from '../redux/errors/errors.actions'
-import { addFiles } from '../redux/files/files.actions'
-import { VALIDATE_FILES } from '../redux/files/files.types'
+import { addFiles } from '../redux/attachedFiles/attachedFiles.actions'
+import { VALIDATE_FILES } from '../redux/attachedFiles/attachedFiles.types'
 
-const filesValidationMiddleware = ({ dispatch }) => next => action => {
+const filesValidationMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type !== VALIDATE_FILES) {
     return next(action)
   }
@@ -22,7 +22,8 @@ const filesValidationMiddleware = ({ dispatch }) => next => action => {
     'xlsx',
     'zip',
   ]
-  let totalFilesSize = null
+  let {attachedFiles: {totalSize} } = getState()
+  let totalFilesSize = null;
   for (let file of action.payload) {
     totalFilesSize += file.size
     if (
@@ -31,12 +32,17 @@ const filesValidationMiddleware = ({ dispatch }) => next => action => {
       errors.files.type = true
     } else if (file.size > 5242880) {
       errors.files.singleFileSize = true
+    }  else if (totalSize + file.size > 20971520) {
+      errors.files.totalFilesSize = true
     }
   }
-  if (totalFilesSize > 20971520) {
-    errors.files.totalFilesSize = true
-  }
-
+  console.log(totalFilesSize)
+    if(totalFilesSize > 20971520) {
+      errors.files.totalFilesSize = true
+    }
+  
+  
+ 
   dispatch(displayFileErrors(errors))
 
   if (!Object.keys(errors.files).length) {
