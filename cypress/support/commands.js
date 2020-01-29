@@ -1,12 +1,27 @@
 import 'cypress-file-upload'
 import 'cypress-wait-until'
 
-Cypress.Commands.add('checkIfInputIsVisible', id =>
-  cy.get(`input[id=${id}]`).should('be.visible')
-)
+const inputIds = [
+  'senderName',
+  'senderEmail',
+  'receiverName',
+  'receiverEmail',
+  'subject',
+  'text',
+]
+
+Cypress.Commands.add('checkIfAllInputsAreVisible', () => {
+  inputIds.forEach(input => {
+    cy.checkForVisibility(`[id=${input}]`)
+  })
+})
 
 Cypress.Commands.add('checkForVisibility', selector => {
   cy.get(`${selector}`).should('be.visible')
+})
+
+Cypress.Commands.add('clickOnSubmit', () => {
+  cy.get('input[type="submit"]').click()
 })
 
 Cypress.Commands.add('checkIfErrorIsShown', (dataAttr, errorMessage) =>
@@ -14,9 +29,19 @@ Cypress.Commands.add('checkIfErrorIsShown', (dataAttr, errorMessage) =>
 )
 
 Cypress.Commands.add('checkIfTypedDataIsCorrect', id => {
-  cy.get(`input[id=${id}]`)
+  cy.get(`[id=${id}]`)
     .type('Тест')
     .should('have.value', 'Тест')
+})
+
+Cypress.Commands.add('checkIfTypedDataInAllFieldsIsCorrect', () => {
+  inputIds.forEach(input => {
+    cy.checkIfTypedDataIsCorrect(input)
+  })
+})
+
+Cypress.Commands.add('typeInText', (selector, text) => {
+  cy.get(`${selector}`).type(`${text}`)
 })
 
 Cypress.Commands.add('uploadValidFileviaDragDrop', filename => {
@@ -34,7 +59,7 @@ Cypress.Commands.add('uploadValidFileviaDragDrop', filename => {
 })
 
 Cypress.Commands.add('removeFile', filename => {
-  cy.get('.form__attachement-remove-label').click()
+  cy.get('.attachement__remove-label').click()
   cy.contains(filename).should('not.exist')
 })
 
@@ -97,5 +122,39 @@ Cypress.Commands.add('uploadTotalTooLarge', () => {
       })
     })
     cy.checkIfErrorIsShown('totalSize', errorMessages.errorMultipleFilesSize)
+  })
+})
+
+Cypress.Commands.add('checkIncorrectSentMessage', subject => {
+  const date = new Date().toLocaleString('ru', {
+    day: '2-digit',
+    month: 'long',
+  })
+  cy.get('[data-name="date"]').should('contain', date)
+  cy.get(`[data-name="subject"]`).should('contain', 'Тема')
+  cy.get('[data-name="status"]').should('have.class', 'list__status_pending')
+  cy.wait(20000)
+  cy.get('[data-name="status"]').should('have.class', 'list__status_error')
+})
+
+Cypress.Commands.add('checkCorrectSentMessage', () => {
+  cy.get('[data-name="status"]').should('have.class', 'list__status_pending')
+  cy.wait(15000)
+  cy.get('[data-name="status"]').should('have.class', 'list__status_success')
+})
+
+Cypress.Commands.add('typeInWholeMessage', email => {
+  cy.visit('http://localhost:3000')
+  cy.typeInText('[id="senderName"]', 'Отправитель')
+  cy.typeInText('[id="senderEmail"]', email)
+  cy.typeInText('[id="receiverName"]', 'Получатель')
+  cy.typeInText('[id="receiverEmail"]', 'receiver@test.com')
+  cy.typeInText('[id="subject"]', 'Тема')
+  cy.typeInText('[id="text"]', 'Текст')
+})
+
+Cypress.Commands.add('checkIfAllInputsAreVisibleAndEmpty', () => {
+  inputIds.forEach(input => {
+    cy.checkForVisibility(`[id=${input}]`).should('be.empty')
   })
 })

@@ -6,10 +6,10 @@ import SmallPaperclipIcon from './UI/Icons/SmallPaperclipIcon'
 const FileInput = props => {
   const { typeError, fileSizeError, totalSizeError } = props
   return (
-    <div className="form__file-input">
-      <label htmlFor="file" className="form__file-input-label">
+    <div className="file-input">
+      <label htmlFor="file" className="file-input__label">
         <SmallPaperclipIcon />
-        <div className="form__file-input-label-name">Прикрепить файл</div>
+        <div className="file-input__label-name">Прикрепить файл</div>
       </label>
       <input
         type="file"
@@ -19,7 +19,7 @@ const FileInput = props => {
         hidden
         onChange={e => props.validateFiles(e.target.files)}
       />
-      <div className="form__file-input-error-message">
+      <div className="file-input__error-message">
         <div data-error='type'>{typeError ? 'Не поддерживаемый тип файла' : null}</div>
         <div data-error="singleFileSize">
           {fileSizeError ? 'Размер одного файла не должен превышать 5МБ' : null}

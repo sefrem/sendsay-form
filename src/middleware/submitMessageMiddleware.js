@@ -12,7 +12,7 @@ const submitMessageMiddleware = ({ dispatch, getState }) => next => action => {
     sender: { name: senderName, email: senderEmail },
     receiver: { name: receiverName, email: receiverEmail },
     message: { subject, text },
-    files: { files },
+    attachedFiles: { files },
   } = getState()
 
   const sendsay = new Sendsay()

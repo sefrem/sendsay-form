@@ -36,7 +36,7 @@ const attachedFiles = (state = initialState, action) => {
       }
       return { ...state, ...newState }
     case CLEAR_FILES:
-      return []
+      return { ...state, ...initialState }
     default:
       return state
   }

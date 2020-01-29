@@ -1,5 +1,6 @@
-.list {
+.messages-list {
    width: 800px;
+   height: 50vh;
    margin: auto;
 }
 
@@ -9,29 +10,8 @@
     margin: 20px 0;
 }
 
-.list__items-header_hidden {
+.list__item_hidden {
     display: none;
-}
-
-.list__items-header {
-    display: grid;
-    grid-template-columns: 100px 1fr 100px;
-    column-gap: 30px;
-    padding-bottom: 15px;
-    opacity: 0.4;
-    border-bottom: 1px solid rgba(0,0,0,0.4);
-}
-.list__items-header-date {
-    grid-column: 1 / 2;
-}
-
-.list__items-header-subject {
-    grid-column: 2 / 3;
-}
-
-.list__items-header-status {
-    grid-column: 3 / 4;
-    justify-self: end;
 }
 
 .list__item {
@@ -41,30 +21,36 @@
     margin-top: 15px;
 }
 
-.list__item-date {
+.list__item_header {
+    padding-bottom: 15px;
+    opacity: 0.4;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.list__date {
     grid-column: 1 / 2;
 }
 
-.list__item-subject {
+.list__status {
+    grid-column: 3 / 4;
+    justify-self: end;
+}
+
+.list__subject {
     grid-column: 2 / 3;
     white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.list__item-status {
-    grid-column: 3 / 4;
-    justify-self: end;
-}
-
-.list__item-status_success {
+.list__status_success {
     color: #03A100;
 }
 
-.list__item-status_pending{
+.list__status_pending{
     opacity: 0.4; 
 }
 
-.list__item-status_error{
+.list__status_error{
     color: #FF6666;
 }

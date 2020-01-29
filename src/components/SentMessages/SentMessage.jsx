@@ -31,14 +31,19 @@ const SentMessage = props => {
   })
   return (
     <div className="list__item">
-      <div className="list__item-date">{date}</div>
-      <div className="list__item-subject">{subject}</div>
+      <div data-name="date" className="list__date">
+        {date}
+      </div>
+      <div data-name="subject" className="list__subject">
+        {subject}
+      </div>
       <div
+        data-name="status"
         className={classnames(
-          'list__item-status',
-          { 'list__item-status_success': status === -1 },
-          { 'list__item-status_pending': status > -1 },
-          { 'list__item-status_error': status < -1 }
+          'list__status',
+          { list__status_success: status === -1 },
+          { list__status_pending: status > -1 },
+          { list__status_error: status < -1 }
         )}
       >
         {statusMessage}

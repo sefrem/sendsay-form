@@ -7,16 +7,16 @@ const SentMessages = props => {
   const sentMessagesExist = Object.keys(sentMessages).length
 
   return (
-    <div className="list">
+    <div className="messages-list">
       <div className="list__header">Отправленные сообщения</div>
       <div
         className={
-          sentMessagesExist ? 'list__items-header' : 'list__items-header_hidden'
+          sentMessagesExist ? 'list__item list__item_header' : 'list__item_hidden'
         }
       >
-        <div className="list__items-header-date">Дата</div>
-        <div className="list__items-header-subject">Тема</div>
-        <div className="list__items-header-status">Статус</div>
+        <div className="list__date">Дата</div>
+        <div className="list__subject">Тема</div>
+        <div className="list__status">Статус</div>
       </div>
       <div className="list__items">
         {sentMessagesExist ? (

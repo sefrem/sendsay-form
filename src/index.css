@@ -3,5 +3,9 @@
 @import "./stylesheets/dragDrop.css";
 @import "./stylesheets//list.css";
 @import "./stylesheets/modal.css";
-@import "./stylesheets//submit.css"
-
+@import "./stylesheets//submit.css";
+@import "./stylesheets/fieldGroup.css";
+@import "./stylesheets/error.css";
+@import "./stylesheets/message.css";
+@import "./stylesheets//fileInput.css";
+@import "./stylesheets/attachement.css";
