@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sendsay-form/static/css/main.2767cc3d.chunk.css",
+    "main.js": "/sendsay-form/static/js/main.4fed1c58.chunk.js",
+    "main.js.map": "/sendsay-form/static/js/main.4fed1c58.chunk.js.map",
+    "runtime-main.js": "/sendsay-form/static/js/runtime-main.62e1c450.js",
+    "runtime-main.js.map": "/sendsay-form/static/js/runtime-main.62e1c450.js.map",
+    "static/js/2.10aefee9.chunk.js": "/sendsay-form/static/js/2.10aefee9.chunk.js",
+    "static/js/2.10aefee9.chunk.js.map": "/sendsay-form/static/js/2.10aefee9.chunk.js.map",
+    "index.html": "/sendsay-form/index.html",
+    "precache-manifest.03d3da5ea13d18756d632f786c422c44.js": "/sendsay-form/precache-manifest.03d3da5ea13d18756d632f786c422c44.js",
+    "service-worker.js": "/sendsay-form/service-worker.js",
+    "static/css/main.2767cc3d.chunk.css.map": "/sendsay-form/static/css/main.2767cc3d.chunk.css.map",
+    "static/js/2.10aefee9.chunk.js.LICENSE": "/sendsay-form/static/js/2.10aefee9.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62e1c450.js",
+    "static/js/2.10aefee9.chunk.js",
+    "static/css/main.2767cc3d.chunk.css",
+    "static/js/main.4fed1c58.chunk.js"
+  ]
+}
