@@ -36,7 +36,6 @@ const filesValidationMiddleware = ({ dispatch, getState }) => next => action => 
       errors.files.totalFilesSize = true
     }
   }
-  console.log(totalFilesSize)
     if(totalFilesSize > 20971520) {
       errors.files.totalFilesSize = true
     }

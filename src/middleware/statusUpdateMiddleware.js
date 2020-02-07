@@ -2,7 +2,7 @@ import Sendsay from 'sendsay-api'
 import { UPDATE_MESSAGE_STATUS } from '../redux/sentMessage/sentMessage.types'
 import { updateStatus } from '../redux/sentMessage/sentMessage.actions'
 
-const statusUpdateMiddleware = ({ dispatch, getState }) => next => action => {
+const statusUpdateMiddleware = ({ dispatch }) => next => action => {
   if (action.type !== UPDATE_MESSAGE_STATUS) {
     return next(action)
   }
@@ -11,8 +11,8 @@ const statusUpdateMiddleware = ({ dispatch, getState }) => next => action => {
 
   sendsay
     .login({
-        login: 'fireweb2112@gmail.com',
-        password: 'thi7Musam'
+      login: 'fireweb2112@gmail.com',
+      password: 'thi7Musam'
       // login: process.env.REACT_APP_LOGIN,
       // password: process.env.REACT_APP_PASSWORD,
     })

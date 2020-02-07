@@ -1,4 +1,5 @@
 @import "./stylesheets/base.css";
+@import "./stylesheets/utilities.css";
 @import "./components/Form/form.css";
 @import "./components/DragDrop/dragDrop.css";
 @import "./components/SentMessages/sentMessages.css";
@@ -8,7 +9,7 @@
 @import "./components/Sender&Receiver/fieldGroup.css";
 @import "./components/UI/TextareaField/textareaField.css";
 @import "./components/UI/Error/error.css";
-@import "./components/Message/message.css";
 @import "./components/FileInput/fileInput.css";
 @import "./components/Attachement/attachement.css";
 @import "./components/UI/Label/label.css";
+@import "./components/App/app.css";

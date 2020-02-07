@@ -11,7 +11,7 @@ import Attachement from '../Attachement/Attachement'
 
 const Form = props => {
   return (
-    <div className="form">
+    <div className="form mt-20">
       <div className="form__content-wrapper">
         {props.modalState ? (
           <Modal />

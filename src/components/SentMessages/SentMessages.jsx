@@ -7,7 +7,7 @@ const SentMessages = props => {
   const sentMessagesExist = Object.keys(sentMessages).length
 
   return (
-    <div className="list">
+    <div className="list mt-50">
       <div className="list__header">Отправленные сообщения</div>
       <div
         className={

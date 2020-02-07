@@ -9,7 +9,7 @@ const AttachedFiles = props => {
   return (
     <div className="attachements-list">
       {files.map((file, index) => (
-        <div className="attachement" key={index}>
+        <div className="attachement mb-10" key={index}>
           <div class="attachement__icon">
           <BigPaperclipIcon />
           </div>
