@@ -1,5 +1,6 @@
 import React from 'react'
-import Error from './Error'
+import Error from '../Error/Error'
+import Label from '../Label/Label'
 
 const TextareaField = props => {
   const {
@@ -15,9 +16,7 @@ const TextareaField = props => {
 
   return (
     <div>
-      <label className="label" htmlFor={id}>
-        {labelText}
-      </label>
+      <Label id={id} labelText={labelText} />
       <textarea
         className={
           error ? 'message__text message__text_error' : 'message__text'

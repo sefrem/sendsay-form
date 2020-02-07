@@ -1,11 +1,11 @@
 import React from 'react'
-import InputField from './UI/InputField'
-import TextareaField from './UI/TextareaField'
+import InputField from '../UI/InputField/InputField'
+import TextareaField from '../UI/TextareaField/TextareaField'
 import { connect } from 'react-redux'
 import {
   updateMessageSubject,
   updateMessageText,
-} from '../redux/message/message.actions'
+} from '../../redux/message/message.actions'
 
 const Message = props => {
   const {

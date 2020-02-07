@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { validateFiles } from '../redux/attachedFiles/attachedFiles.actions'
-import SmallPaperclipIcon from './UI/Icons/SmallPaperclipIcon'
+import { validateFiles } from '../../redux/attachedFiles/attachedFiles.actions'
+import SmallPaperclipIcon from '../UI/Icons/SmallPaperclipIcon'
 
 const FileInput = props => {
   const { typeError, fileSizeError, totalSizeError } = props

@@ -1,16 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeFile } from '../redux/attachedFiles/attachedFiles.actions'
-import TrashIcon from './UI/Icons/TrashIcon'
-import BigPaperclipIcon from './UI/Icons/BigPaperclipIcon'
+import { removeFile } from '../../redux/attachedFiles/attachedFiles.actions'
+import TrashIcon from '../UI/Icons/TrashIcon'
+import BigPaperclipIcon from '../UI/Icons/BigPaperclipIcon'
 
 const AttachedFiles = props => {
   const { files, removeFile } = props
   return (
-    <div className="list">
+    <div className="attachements-list">
       {files.map((file, index) => (
         <div className="attachement" key={index}>
+          <div class="attachement__icon">
           <BigPaperclipIcon />
+          </div>
           <div className="attachement__name">
             <div className="attachement__file-name">
               {file.name.substring(0, file.name.lastIndexOf('.'))}

@@ -3,7 +3,6 @@ import React from 'react'
 const BigPaperclipIcon = () => {
   return (
     <svg
-      className="big-clip-icon"
       width="34"
       height="30"
       viewBox="0 0 34 30"

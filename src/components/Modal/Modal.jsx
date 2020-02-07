@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { clearAll } from '../redux/modal/modal.actions'
-import SubmitButton from '../components/UI/SubmitButton'
+import { clearAll } from '../../redux/modal/modal.actions'
+import SubmitButton from '../UI/SubmitButton/SubmitButton'
 
 const Modal = props => {
   return (

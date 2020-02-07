@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Sender from './Sender'
-import Receiver from './Receiver'
-import Message from './Message'
-import Submit from './Submit'
-import DragDrop from './DragDrop/DragDrop'
-import FileInput from './FileInput'
-import AttachedFiles from './AttachedFiles'
-import Modal from './Modal'
+import Sender from '../Sender&Receiver/Sender'
+import Receiver from '../Sender&Receiver/Receiver'
+import Message from '../Message/Message'
+import Submit from '../Submit/Submit'
+import DragDrop from '../DragDrop/DragDrop'
+import FileInput from '../FileInput/FileInput'
+import Modal from '../Modal/Modal'
+import Attachement from '../Attachement/Attachement'
 
 const Form = props => {
   return (
@@ -21,7 +21,7 @@ const Form = props => {
             <Sender />
             <Receiver />
             <Message />
-            <AttachedFiles />
+            <Attachement />
             <FileInput />
             <Submit />
           </DragDrop>

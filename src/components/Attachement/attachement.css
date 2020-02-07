@@ -1,3 +1,9 @@
+.attachements-list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
 .attachement {
 	display: grid;
 	width: 365px;
@@ -8,6 +14,10 @@
 	border-radius: 5px;
 	margin-bottom: 10px;
 	align-items: center;
+}
+
+.attachement__icon {
+	justify-self: center;
 }
 
 .attachement__name {

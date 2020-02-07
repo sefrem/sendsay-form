@@ -17,21 +17,5 @@
 	margin-bottom: 20px;
 }
 
-.label {
-	display: inline-block;
-	font-size: 16px;
-	line-height: 20px;
-	margin-bottom: 5px;
-	color: rgba(0, 0, 0, 0.6);
-}
 
-.list {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
-}
-
-.big-clip-icon {
-	justify-self: center;
-}
 

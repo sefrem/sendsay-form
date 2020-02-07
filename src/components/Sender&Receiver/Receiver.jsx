@@ -1,10 +1,10 @@
 import React from 'react'
-import InputField from './UI/InputField'
+import InputField from '../UI/InputField/InputField'
 import { connect } from 'react-redux'
 import {
   updateReceiverName,
   updateReceiverEmail,
-} from '../redux/receiver/receiver.actions'
+} from '../../redux/receiver/receiver.actions'
 
 const Receiver = props => {
   const {

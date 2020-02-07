@@ -1,5 +1,6 @@
 import React from 'react'
-import Error from './Error'
+import Error from '../Error/Error';
+import Label from '../Label/Label'
 
 const Field = props => {
   const {
@@ -15,9 +16,7 @@ const Field = props => {
   } = props
   return (
     <div className="field">
-      <label className="label" htmlFor={id}>
-        {labelText}
-      </label>
+      <Label id={id} labelText={labelText} />
       <input
         id={id}
         type={type}

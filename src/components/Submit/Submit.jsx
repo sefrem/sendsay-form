@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { submitMessage } from '../redux/sentMessage/sentMessage.actions'
-import SubmitButton from '../components/UI/SubmitButton'
+import { submitMessage } from '../../redux/sentMessage/sentMessage.actions'
+import SubmitButton from '../UI/SubmitButton/SubmitButton'
 
 const Submit = props => {
   const onSubmit = () => {
