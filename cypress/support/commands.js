@@ -154,7 +154,6 @@ Cypress.Commands.add('checkCorrectSentMessage', () => {
 })
 
 Cypress.Commands.add('typeInWholeMessage', email => {
-  cy.visit('http://localhost:3000')
   cy.typeInText('[id="senderName"]', 'Отправитель')
   cy.typeInText('[id="senderEmail"]', email)
   cy.typeInText('[id="receiverName"]', 'Получатель')
