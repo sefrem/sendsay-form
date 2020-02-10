@@ -14,16 +14,22 @@ describe('Тестируем форму отправки email', () => {
       cy.clickOnSubmit()
       cy.fixture('errorMessages.json').then(error => {
         cy.checkIfErrorIsShown('senderName', error.senderName)
-        cy.checkIfErrorIsShown('senderEmail', error.senderEmail)
+        cy.checkIfErrorIsShown('senderEmail', error.senderEmail.empty)
         cy.checkIfErrorIsShown('receiverName', error.receiverName)
-        cy.checkIfErrorIsShown('receiverEmail', error.receiverEmail)
+        cy.checkIfErrorIsShown('receiverEmail', error.receiverEmail.empty)
         cy.checkIfErrorIsShown('subject', error.subject)
         cy.checkIfErrorIsShown('text', error.text)
       })
     })
 
     it('Показывается ошибка, если email некорректен', () => {
-      
+      cy.typeInText('[id="senderEmail"]', 'wrong')
+      cy.typeInText('[id="receiverEmail"]', 'wrong')
+      cy.clickOnSubmit()
+      cy.fixture('errorMessages.json').then(error => {
+        cy.checkIfErrorIsShown('senderEmail', error.senderEmail.invalid)
+        cy.checkIfErrorIsShown('receiverEmail', error.receiverEmail.invalid)
+      })
     })
 
     it('Введенные в поля данные соответствуют отображаемым', () => {
@@ -54,12 +60,19 @@ describe('Тестируем форму отправки email', () => {
   })
 
   context('Отправка сообщения', () => {
-    it('После отправки сообщения появляется модальное окно, в нем указан емэил получателя. В списке отправленных сообщений появляется новое, у которого "Дата" и "Тема" соответствуют заполненным, при ошибке его статус меняется с "В процессе" на "Ошибка". Через 5 секунд появляется форма отправки сообщения, все поля которой пусты', () => {
-      cy.typeInWholeMessage('incorrect@test.com')
+
+    it('После отправки сообщения появляется модальное окно, в нем указан емэил получателя. Через 5 секунд появляется форма отправки сообщения, все поля которой пусты', () => {
+      cy.typeInWholeMessage(Cypress.env('login'))
       cy.clickOnSubmit()
       cy.checkIfModalIsVisibleAndContainsEmail()
-      cy.checkIncorrectSentMessage()
+      cy.wait(5000)
       cy.checkIfAllInputsAreVisibleAndEmpty()
+    })
+
+    it('В списке отправленных сообщений появляется новое, у которого "Дата" и "Тема" соответствуют заполненным, при ошибке его статус меняется с "В процессе" на "Ошибка".', () => {
+      cy.typeInWholeMessage('incorrect@test.com')
+      cy.clickOnSubmit()
+      cy.checkIncorrectSentMessage()
     })
 
     it('Отправка корректного сообщения, его статус меняется с "В процессе" на "Отправлено"', () => {
