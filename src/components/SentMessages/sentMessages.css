@@ -1,0 +1,54 @@
+.list {
+   height: 50vh;
+}
+
+.list__header {
+    font-size: 24px;
+    line-height: 30px;
+    margin: 20px 0;
+}
+
+.list__item_hidden {
+    display: none;
+}
+
+.list__item {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    column-gap: 30px;
+    margin-top: 15px;
+}
+
+.list__item_header {
+    padding-bottom: 15px;
+    opacity: 0.4;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.list__date {
+    grid-column: 1 / 2;
+}
+
+.list__status {
+    grid-column: 3 / 4;
+    justify-self: end;
+}
+
+.list__subject {
+    grid-column: 2 / 3;
+    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.list__status_success {
+    color: #03A100;
+}
+
+.list__status_pending{
+    opacity: 0.4; 
+}
+
+.list__status_error{
+    color: #FF6666;
+}

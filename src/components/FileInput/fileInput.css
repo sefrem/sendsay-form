@@ -1,0 +1,21 @@
+.file-input {
+	display: flex;
+}
+
+.file-input__label {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	line-height: 20px;
+	color: #0055fb;
+	margin: 10px 0 20px;
+}
+
+.file-input__label-name {
+	margin-left: 5px;
+}
+
+.file-input__error-message {
+	margin: auto;
+	color: red;
+}

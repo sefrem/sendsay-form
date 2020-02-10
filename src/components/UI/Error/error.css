@@ -1,0 +1,9 @@
+.error__message_active {
+	font-size: 12px;
+	color: red;
+}
+
+.error__message_hidden {
+	height: 15px;
+	visibility: hidden;
+}

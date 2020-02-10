@@ -1,13 +1,15 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import "./stylesheets/base.css";
+@import "./stylesheets/utilities.css";
+@import "./components/Form/form.css";
+@import "./components/DragDrop/dragDrop.css";
+@import "./components/SentMessages/sentMessages.css";
+@import "./components/Modal/modal.css";
+@import "./components/Submit/submit.css";
+@import "./components/UI/InputField/inputField.css";
+@import "./components/Sender&Receiver/fieldGroup.css";
+@import "./components/UI/TextareaField/textareaField.css";
+@import "./components/UI/Error/error.css";
+@import "./components/FileInput/fileInput.css";
+@import "./components/Attachement/attachement.css";
+@import "./components/UI/Label/label.css";
+@import "./components/App/app.css";

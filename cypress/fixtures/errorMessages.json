@@ -1,0 +1,17 @@
+{
+    "senderName": "Введите имя отправителя",
+    "senderEmail": {
+        "empty": "Email не может быть пустым",
+        "invalid": "Некорректный email"
+    },
+    "receiverName": "Введите имя получателя",
+    "receiverEmail": {
+        "empty": "Email не может быть пустым",
+        "invalid": "Некорректный email"
+    },
+    "subject": "Заполните тему",
+    "text": "Введите текст",
+    "errorType": "Не поддерживаемый тип файла",
+    "errorSingleFileSize": "Размер одного файла не должен превышать 5МБ",
+    "errorMultipleFilesSize": "Общий размер файлов не должен превышать 20МБ" 
+}

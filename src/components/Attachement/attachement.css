@@ -1,0 +1,43 @@
+.attachements-list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.attachement {
+	display: grid;
+	width: 365px;
+	grid-template-columns: 60px 1fr 100px;
+	grid-template-rows: 50px;
+	width: 365px;
+	border: 1px solid #dddddd;
+	border-radius: 5px;
+	align-items: center;
+}
+
+.attachement__icon {
+	justify-self: center;
+}
+
+.attachement__name {
+	display: flex;
+	width: 180px;
+	justify-content: flex-start;
+}
+
+.attachement__file-name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.attachement__remove {
+	cursor: pointer;
+	justify-self: flex-start;
+}
+
+.attachement__remove-label {
+	font-size: 16px;
+	color: #ff6666;
+	margin-left: 5px;
+}
