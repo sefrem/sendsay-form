@@ -13,7 +13,7 @@ const Sender = props => {
     name,
     email,
     errorName,
-    errorEmail,
+    errorEmail: { empty, invalid },
   } = props
   return (
     <div className="field-group mb-5">
@@ -35,8 +35,14 @@ const Sender = props => {
         value={email}
         onChange={updateSenderEmail}
         placeholder="Email"
-        error={errorEmail}
-        errorMessage="Некорректный email"
+        error={empty || invalid}
+        errorMessage={
+          empty
+            ? 'Email не может быть пустым'
+            : invalid
+            ? 'Некорректный email'
+            : null
+        }
       />
     </div>
   )

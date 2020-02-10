@@ -21,7 +21,7 @@ Cypress.Commands.add('checkForVisibility', selector => {
 })
 
 Cypress.Commands.add('clickOnSubmit', () => {
-  cy.get('input[type="submit"]').click()
+  cy.get('button[type="submit"]').click()
 })
 
 Cypress.Commands.add('checkIfErrorIsShown', (dataAttr, errorMessage) =>
@@ -133,14 +133,24 @@ Cypress.Commands.add('checkIncorrectSentMessage', subject => {
   cy.get('[data-name="date"]').should('contain', date)
   cy.get(`[data-name="subject"]`).should('contain', 'Тема')
   cy.get('[data-name="status"]').should('have.class', 'list__status_pending')
-  cy.wait(20000)
-  cy.get('[data-name="status"]').should('have.class', 'list__status_error')
+  cy.waitUntil(
+    () =>
+      cy
+        .get('[data-name="status"]')
+        .then($item => $item[0].classList[1] === 'list__status_error'),
+    { timeout: 20000, interval: 5000 }
+  )
 })
 
 Cypress.Commands.add('checkCorrectSentMessage', () => {
   cy.get('[data-name="status"]').should('have.class', 'list__status_pending')
-  cy.wait(15000)
-  cy.get('[data-name="status"]').should('have.class', 'list__status_success')
+  cy.waitUntil(
+    () =>
+      cy
+        .get('[data-name="status"]')
+        .then($item => $item[0].classList[1] === 'list__status_success'),
+    { timeout: 20000, interval: 5000 }
+  )
 })
 
 Cypress.Commands.add('typeInWholeMessage', email => {
@@ -157,4 +167,9 @@ Cypress.Commands.add('checkIfAllInputsAreVisibleAndEmpty', () => {
   inputIds.forEach(input => {
     cy.checkForVisibility(`[id=${input}]`).should('be.empty')
   })
+})
+
+Cypress.Commands.add('checkIfModalIsVisibleAndContainsEmail', () => {
+      cy.get('.modal').should('be.visible')
+      cy.get('.modal__message').should('contain', 'receiver@test.com')
 })

@@ -4,7 +4,7 @@
 @import "./components/DragDrop/dragDrop.css";
 @import "./components/SentMessages/sentMessages.css";
 @import "./components/Modal/modal.css";
-@import "./components/UI/SubmitButton/submitButton.css";
+@import "./components/Submit/submit.css";
 @import "./components/UI/InputField/inputField.css";
 @import "./components/Sender&Receiver/fieldGroup.css";
 @import "./components/UI/TextareaField/textareaField.css";

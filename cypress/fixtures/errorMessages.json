@@ -1,8 +1,8 @@
 {
     "senderName": "Введите имя отправителя",
-    "senderEmail": "Некорректный email",
+    "senderEmail": "Email не может быть пустым",
     "receiverName": "Введите имя получателя",
-    "receiverEmail": "Некорректный email",
+    "receiverEmail": "Email не может быть пустым",
     "subject": "Заполните тему",
     "text": "Введите текст",
     "errorType": "Не поддерживаемый тип файла",

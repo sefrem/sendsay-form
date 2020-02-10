@@ -6,6 +6,7 @@ import errors from './errors/errors.reducer'
 import attachedFiles from './attachedFiles/attachedFiles.reducer'
 import sentMessage from './sentMessage/sentMessage.reducer'
 import modal from './modal/modal.reducer'
+import submitButton from './submitButton/submitButton.reducer'
 
 const reducerApp = combineReducers({
   sender,
@@ -14,7 +15,8 @@ const reducerApp = combineReducers({
   errors,
   attachedFiles,
   sentMessage,
-  modal
+  modal,
+  submitButton
 })
 
 export default reducerApp

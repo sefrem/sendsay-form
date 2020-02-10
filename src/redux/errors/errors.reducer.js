@@ -3,9 +3,15 @@ import { DISPLAY_INPUT_ERRORS, DISPLAY_FILE_ERRORS } from './errors.types'
 const initialState = {
   input: {
     senderName: false,
-    senderEmail: false,
+    senderEmail: {
+      empty: false,
+      invalid: false,
+    },
     receiverName: false,
-    receiverEmail: false,
+    receiverEmail: {
+      empty: false,
+      invalid: false,
+    },
     subject: false,
     message: false,
   },

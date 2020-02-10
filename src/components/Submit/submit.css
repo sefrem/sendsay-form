@@ -1,5 +1,7 @@
 .submit {
 	padding: 4px 25px;
+	width: 140px;
+	height: 40px;
 	background: linear-gradient(180deg, #45a6ff 0%, #0055fb 100%);
 	border-width: 1px;
 	border-radius: 5px;
@@ -17,6 +19,15 @@
 		),
 		linear-gradient(180deg, #45a6ff 0%, #0055fb 100%), #c4c4c4;
 }
+
+.submit_disabled {
+	background: linear-gradient(0deg, #C4C4C4, #C4C4C4), linear-gradient(180deg, #45A6FF 0%, #0055FB 100%);
+}
+
+.submit_disabled:hover {
+	background: linear-gradient(0deg, #C4C4C4, #C4C4C4), linear-gradient(180deg, #45A6FF 0%, #0055FB 100%);
+}
+
 
 .submit:active {
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),

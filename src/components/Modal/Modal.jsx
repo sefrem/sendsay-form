@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { clearAll } from '../../redux/modal/modal.actions'
-import SubmitButton from '../UI/SubmitButton/SubmitButton'
 
 const Modal = props => {
   return (
@@ -13,7 +11,6 @@ const Modal = props => {
         Совсем скоро сообщение вылетит из сервера и будет двигаться в сторону
         почты получателя {props.email} со скоростью электронов
       </div>
-      <SubmitButton value="ОК" onClick={props.clearAll} />
     </div>
   )
 }
@@ -24,8 +21,5 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = {
-  clearAll,
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal)
+export default connect(mapStateToProps, null)(Modal)

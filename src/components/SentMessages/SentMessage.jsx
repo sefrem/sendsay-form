@@ -41,9 +41,9 @@ const SentMessage = props => {
         data-name="status"
         className={classnames(
           'list__status',
-          { list__status_success: status === -1 },
-          { list__status_pending: status > -1 },
-          { list__status_error: status < -1 }
+          { 'list__status_success': status === -1 },
+          { 'list__status_pending': status > -1 },
+          { 'list__status_error': status < -1 }
         )}
       >
         {statusMessage}

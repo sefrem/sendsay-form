@@ -22,19 +22,32 @@ const inputValidationMiddleware = ({
   const inputErrors = {
     input: {
       senderName: emptyInputValidation(senderName),
-      senderEmail: emailValidation(senderEmail),
+      senderEmail: {
+        empty: emptyInputValidation(senderEmail),
+        invalid: emailValidation(senderEmail),
+      },
       receiverName: emptyInputValidation(receiverName),
-      receiverEmail: emailValidation(receiverEmail),
+      receiverEmail: {
+        empty: emptyInputValidation(receiverEmail),
+        invalid: emailValidation(receiverEmail),
+      },
       subject: emptyInputValidation(subject),
       text: emptyInputValidation(text),
     },
   }
 
-  const inputsAreValid = errors => !Object.values(errors).some(err => err)
+  const inputsAreValid = errors => {
+    return Object.values(errors).some(value => {
+      if (typeof value === 'object') {
+        return inputsAreValid(value)
+      }
+      return value
+    })
+  }
 
   dispatch(displayInputErrors(inputErrors))
 
-  if (inputsAreValid(inputErrors.input)) {
+  if (!inputsAreValid(inputErrors.input)) {
     next(action)
   }
 }

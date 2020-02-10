@@ -1,6 +1,7 @@
 import React from 'react'
 import Error from '../Error/Error'
 import Label from '../Label/Label'
+import classNames from 'classnames'
 
 const TextareaField = props => {
   const {
@@ -18,9 +19,7 @@ const TextareaField = props => {
     <div>
       <Label id={id} labelText={labelText} />
       <textarea
-        className={
-          error ? 'message__text message__text_error' : 'message__text'
-        }
+        className={classNames('message__text', { 'message__text_error': error })}
         id={id}
         type={type}
         name={name}

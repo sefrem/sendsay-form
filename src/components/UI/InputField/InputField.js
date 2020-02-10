@@ -1,6 +1,7 @@
 import React from 'react'
-import Error from '../Error/Error';
+import Error from '../Error/Error'
 import Label from '../Label/Label'
+import classNames from 'classnames'
 
 const Field = props => {
   const {
@@ -20,7 +21,7 @@ const Field = props => {
       <input
         id={id}
         type={type}
-        className={error ? 'field__input field__input_error' : 'field__input'}
+        className={classNames('field__input', { 'field__input_error': error })}
         placeholder={placeholder}
         name={name}
         value={value}

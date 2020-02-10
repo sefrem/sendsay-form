@@ -7,29 +7,22 @@ const statusUpdateMiddleware = ({ dispatch }) => next => action => {
     return next(action)
   }
 
-  const sendsay = new Sendsay()
+  const sendsay = new Sendsay({
+    apiKey: process.env.REACT_APP_APIKEY,
+  })
 
   sendsay
-    .login({
-      login: 'fireweb2112@gmail.com',
-      password: 'thi7Musam'
-      // login: process.env.REACT_APP_LOGIN,
-      // password: process.env.REACT_APP_PASSWORD,
+    .request({
+      action: 'track.get',
+      id: action.payload,
     })
     .then(res => {
-      sendsay
-        .request({
-          action: 'track.get',
+      dispatch(
+        updateStatus({
           id: action.payload,
+          status: res.obj.status,
         })
-        .then(res => {
-          dispatch(
-            updateStatus({
-              id: action.payload,
-              status: res.obj.status,
-            })
-          )
-        })
+      )
     })
 
   next(action)
